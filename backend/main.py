@@ -602,7 +602,8 @@ async def youtube_summary(data: dict):
         # =========================
 
         transcript_data = supadata_client.transcript(
-            youtube_url
+            youtube_url,
+            lang="en"
         )
 
         transcript = ""
