@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+python-dotenv
+python-multipart
+PyPDF2
+groq
+youtube-transcript-api
+passlib[bcrypt]
+python-jose
+bcrypt
