@@ -601,8 +601,8 @@ async def youtube_summary(data: dict):
         # FETCH TRANSCRIPT
         # =========================
 
-        transcript_data = supadata.youtube.transcript(
-            video_url=youtube_url
+        transcript_data = supadata.transcript.youtube(
+            youtube_url
         )
 
         transcript = ""
