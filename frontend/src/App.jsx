@@ -1,16 +1,18 @@
+// src/App.jsx
+
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate
-} from "react-router-dom";
+} from "react-router-dom"
 
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
 
@@ -20,7 +22,7 @@ function App() {
 
       <Routes>
 
-        {/* Home Page */}
+        {/* Home */}
         <Route
           path="/"
           element={<Home />}
@@ -59,7 +61,7 @@ function App() {
       </Routes>
 
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

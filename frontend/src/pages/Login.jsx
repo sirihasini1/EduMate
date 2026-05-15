@@ -36,8 +36,6 @@ function Login() {
         }
       )
 
-      console.log(response.data)
-
       localStorage.setItem(
         "token",
         response.data.access_token
@@ -196,7 +194,7 @@ function Login() {
           New to EduMate?{" "}
 
           <Link
-            to="/register"
+            to="/signup"
             className="text-red-500 hover:text-red-400 font-semibold transition"
           >
             Create an account
