@@ -28,8 +28,15 @@ function Login() {
         {
           email,
           password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       )
+
+      console.log(response.data)
 
       localStorage.setItem(
         "token",
@@ -42,9 +49,17 @@ function Login() {
 
       console.log(error)
 
-      setError(
-        "Invalid email or password"
-      )
+      if (error.response?.data?.detail) {
+
+        setError(error.response.data.detail)
+
+      } else {
+
+        setError(
+          "Invalid email or password"
+        )
+
+      }
 
     } finally {
 
@@ -164,11 +179,13 @@ function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white font-bold py-4 rounded-2xl text-xl cursor-pointer shadow-lg shadow-red-900/30"
+            className="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white font-bold py-4 rounded-2xl text-xl cursor-pointer shadow-lg shadow-red-900/30 disabled:opacity-70"
           >
+
             {loading
               ? "Signing In..."
               : "Sign In"}
+
           </button>
 
         </form>
