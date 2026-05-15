@@ -8,4 +8,4 @@ groq
 youtube-transcript-api
 passlib[bcrypt]
 python-jose
-bcrypt
+bcrypt==4.0.1
