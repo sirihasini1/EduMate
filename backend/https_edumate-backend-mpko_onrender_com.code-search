@@ -1,0 +1,54 @@
+# Query: https://edumate-backend-mpko.onrender.com
+# ContextLines: 1
+
+10 results - 10 files
+
+frontend\src\components\Flashcards.jsx:
+  16        const response = await axios.get(
+  17:         "https://edumate-backend-mpko.onrender.com/generate-flashcards"
+  18        );
+
+frontend\src\components\PDFChat.jsx:
+  30        const response = await axios.post(
+  31:         `https://edumate-backend-mpko.onrender.com/ask?question=${question}`
+  32        )
+
+frontend\src\components\QuizGenerator.jsx:
+  77        const response = await axios.get(
+  78:         "https://edumate-backend-mpko.onrender.com/generate-quiz"
+  79        );
+
+frontend\src\components\RoadmapGenerator.jsx:
+  33        const response = await axios.post(
+  34:         "https://edumate-backend-mpko.onrender.com/generate-roadmap",
+  35          {
+
+frontend\src\components\StudyPlanner.jsx:
+  27        const response = await axios.post(
+  28:         "https://edumate-backend-mpko.onrender.com/generate-study-plan",
+  29          {
+
+frontend\src\components\UploadBox.jsx:
+  43          await axios.post(
+  44:           "https://edumate-backend-mpko.onrender.com/upload-pdf",
+  45            formData
+
+frontend\src\components\YoutubeSummary.jsx:
+  28        const response = await axios.post(
+  29:         "https://edumate-backend-mpko.onrender.com/youtube-summary",
+  30          {
+
+frontend\src\pages\Login.jsx:
+  26        const response = await axios.post(
+  27:         "https://edumate-backend-mpko.onrender.com/login",
+  28          {
+
+frontend\src\pages\Signup.jsx:
+  20        await axios.post(
+  21:         "https://edumate-backend-mpko.onrender.com/register",
+  22          {
+
+frontend\src\services\authService.js:
+  2  
+  3: const API = "https://edumate-backend-mpko.onrender.com";
+  4  

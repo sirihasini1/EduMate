@@ -18,7 +18,7 @@ function Signup() {
     try {
 
       await axios.post(
-        "http://127.0.0.1:8000/register",
+        "https://edumate-backend-mpko.onrender.com/register",
         {
           email,
           password,

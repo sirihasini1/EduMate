@@ -31,7 +31,7 @@ function RoadmapGenerator() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/generate-roadmap",
+        "https://edumate-backend-mpko.onrender.com/generate-roadmap",
         {
           topic,
         }

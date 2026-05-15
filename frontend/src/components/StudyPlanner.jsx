@@ -25,7 +25,7 @@ function StudyPlanner() {
       setLoading(true)
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/generate-study-plan",
+        "https://edumate-backend-mpko.onrender.com/generate-study-plan",
         {
           goal,
           hours_per_day: hours,

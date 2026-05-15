@@ -26,7 +26,7 @@ export default function YouTubeSummarizer() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/youtube-summary",
+        "https://edumate-backend-mpko.onrender.com/youtube-summary",
         {
           url: url
         }

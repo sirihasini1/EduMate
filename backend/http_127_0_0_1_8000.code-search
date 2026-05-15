@@ -1,0 +1,54 @@
+# Query: http://127.0.0.1:8000
+# ContextLines: 1
+
+10 results - 10 files
+
+frontend\src\components\Flashcards.jsx:
+  16        const response = await axios.get(
+  17:         "http://127.0.0.1:8000/generate-flashcards"
+  18        );
+
+frontend\src\components\PDFChat.jsx:
+  30        const response = await axios.post(
+  31:         `http://127.0.0.1:8000/ask?question=${question}`
+  32        )
+
+frontend\src\components\QuizGenerator.jsx:
+  77        const response = await axios.get(
+  78:         "http://127.0.0.1:8000/generate-quiz"
+  79        );
+
+frontend\src\components\RoadmapGenerator.jsx:
+  33        const response = await axios.post(
+  34:         "http://127.0.0.1:8000/generate-roadmap",
+  35          {
+
+frontend\src\components\StudyPlanner.jsx:
+  27        const response = await axios.post(
+  28:         "http://127.0.0.1:8000/generate-study-plan",
+  29          {
+
+frontend\src\components\UploadBox.jsx:
+  43          await axios.post(
+  44:           "http://127.0.0.1:8000/upload-pdf",
+  45            formData
+
+frontend\src\components\YoutubeSummary.jsx:
+  28        const response = await axios.post(
+  29:         "http://127.0.0.1:8000/youtube-summary",
+  30          {
+
+frontend\src\pages\Login.jsx:
+  26        const response = await axios.post(
+  27:         "http://127.0.0.1:8000/login",
+  28          {
+
+frontend\src\pages\Signup.jsx:
+  20        await axios.post(
+  21:         "http://127.0.0.1:8000/register",
+  22          {
+
+frontend\src\services\authService.js:
+  2  
+  3: const API = "http://127.0.0.1:8000";
+  4  

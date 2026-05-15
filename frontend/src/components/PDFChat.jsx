@@ -28,7 +28,7 @@ function PDFChat() {
       setLoading(true)
 
       const response = await axios.post(
-        `http://127.0.0.1:8000/ask?question=${question}`
+        `https://edumate-backend-mpko.onrender.com/ask?question=${question}`
       )
 
       setAnswer(response.data.answer)
