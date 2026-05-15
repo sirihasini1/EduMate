@@ -584,7 +584,11 @@ Keep it clean and motivating.
 # YOUTUBE SUMMARY
 # =========================
 
-from youtube_transcript_api import YouTubeTranscriptApi
+from supadata import Supadata
+
+supadata = Supadata(
+    api_key=os.getenv("SUPADATA_API_KEY")
+)
 
 @app.post("/youtube-summary")
 async def youtube_summary(data: dict):
@@ -593,39 +597,19 @@ async def youtube_summary(data: dict):
 
         youtube_url = data.get("url")
 
-        video_id = ""
-
-        # =========================
-        # EXTRACT VIDEO ID
-        # =========================
-
-        if "v=" in youtube_url:
-
-            video_id = youtube_url.split("v=")[1].split("&")[0]
-
-        elif "youtu.be/" in youtube_url:
-
-            video_id = youtube_url.split("youtu.be/")[1]
-            video_id = video_id.split("?")[0]
-            video_id = video_id.split("&")[0]
-
-        else:
-
-            return {
-                "summary": "Invalid YouTube URL"
-            }
-
         # =========================
         # FETCH TRANSCRIPT
         # =========================
 
-        transcript_api = YouTubeTranscriptApi()
-
-        fetched_transcript = transcript_api.fetch(video_id)
-
-        transcript = " ".join(
-            [snippet.text for snippet in fetched_transcript]
+        transcript_data = supadata.youtube.transcript(
+            video_url=youtube_url
         )
+
+        transcript = ""
+
+        for item in transcript_data["content"]:
+
+            transcript += item["text"] + " "
 
         # =========================
         # AI SUMMARY
@@ -654,8 +638,10 @@ Transcript:
             "summary": summary
         }
 
-    except Exception:
+    except Exception as e:
+
+        print(e)
 
         return {
-            "summary": "Unable to fetch transcript for this video. Some YouTube videos block transcript access on deployed servers. Try another educational video with captions enabled."
+            "summary": f"Error: {str(e)}"
         }

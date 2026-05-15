@@ -9,3 +9,4 @@ youtube-transcript-api
 passlib[bcrypt]
 python-jose
 bcrypt==4.0.1
+supadata
