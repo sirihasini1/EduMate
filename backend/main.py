@@ -147,7 +147,8 @@ def login(
     if not user:
 
         return {
-            "message": "Invalid email"
+            "success": False,
+            "message": "User does not exist"
         }
 
     if not verify_password(
@@ -156,7 +157,8 @@ def login(
     ):
 
         return {
-            "message": "Invalid password"
+            "success": False,
+            "message": "Incorrect password"
         }
 
     token = create_access_token(
@@ -166,6 +168,7 @@ def login(
     )
 
     return {
+        "success": True,
         "access_token": token
     }
 

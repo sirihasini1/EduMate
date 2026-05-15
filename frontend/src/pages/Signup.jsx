@@ -11,25 +11,56 @@ function Signup() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
   const handleSignup = async (e) => {
 
     e.preventDefault()
 
     try {
 
-      await axios.post(
+      setLoading(true)
+      setError("")
+
+      const response = await axios.post(
         "https://edumate-backend-mpko.onrender.com/register",
         {
           email,
           password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       )
+
+      console.log(response.data)
+
+      alert("Signup successful")
 
       navigate("/login")
 
     } catch (error) {
 
       console.log(error)
+
+      if (error.response?.data?.detail) {
+
+        setError(error.response.data.detail)
+
+      } else {
+
+        setError(
+          "Signup failed. Please try again."
+        )
+
+      }
+
+    } finally {
+
+      setLoading(false)
 
     }
   }
@@ -66,6 +97,15 @@ function Signup() {
           Sign Up
         </h2>
 
+        {/* Error */}
+        {error && (
+
+          <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded mb-6">
+            {error}
+          </div>
+
+        )}
+
         <form
           onSubmit={handleSignup}
           className="space-y-6"
@@ -95,9 +135,14 @@ function Signup() {
 
           <button
             type="submit"
-            className="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white font-bold py-4 rounded text-2xl cursor-pointer"
+            disabled={loading}
+            className="w-full bg-red-600 hover:bg-red-700 transition duration-300 text-white font-bold py-4 rounded text-2xl cursor-pointer disabled:opacity-70"
           >
-            Sign Up
+
+            {loading
+              ? "Creating Account..."
+              : "Sign Up"}
+
           </button>
 
         </form>

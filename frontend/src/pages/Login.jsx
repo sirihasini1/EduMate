@@ -36,12 +36,20 @@ function Login() {
         }
       )
 
-      localStorage.setItem(
-        "token",
-        response.data.access_token
-      )
+      if (response.data.success) {
 
-      navigate("/dashboard")
+        localStorage.setItem(
+          "token",
+          response.data.access_token
+        )
+
+        navigate("/dashboard")
+
+      } else {
+
+        setError(response.data.message)
+
+      }
 
     } catch (error) {
 
@@ -54,7 +62,7 @@ function Login() {
       } else {
 
         setError(
-          "Invalid email or password"
+          "Something went wrong"
         )
 
       }
