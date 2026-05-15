@@ -640,8 +640,8 @@ Transcript:
 
     except Exception as e:
 
-        print(e)
+        print("YOUTUBE ERROR:", str(e))
 
         return {
-            "summary": f"Error: {str(e)}"
+            "summary": str(e)
         }
