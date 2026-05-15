@@ -654,8 +654,8 @@ Transcript:
             "summary": summary
         }
 
-    except Exception as e:
+    except Exception:
 
         return {
-            "summary": f"Error: {str(e)}"
+            "summary": "Unable to fetch transcript for this video. Some YouTube videos block transcript access on deployed servers. Try another educational video with captions enabled."
         }
