@@ -586,7 +586,7 @@ Keep it clean and motivating.
 
 from supadata import Supadata
 
-supadata = Supadata(
+supadata_client = Supadata(
     api_key=os.getenv("SUPADATA_API_KEY")
 )
 
@@ -601,7 +601,7 @@ async def youtube_summary(data: dict):
         # FETCH TRANSCRIPT
         # =========================
 
-        transcript_data = supadata.transcript.youtube(
+        transcript_data = supadata_client.transcript(
             youtube_url
         )
 
