@@ -607,9 +607,9 @@ async def youtube_summary(data: dict):
 
         transcript = ""
 
-        for item in transcript_data["content"]:
+        for item in transcript_data.content:
 
-            transcript += item["text"] + " "
+            transcript += item.text + " "
 
         # =========================
         # AI SUMMARY
